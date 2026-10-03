@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARES VOYAGER | კოსმოსური ტურიზმი და მარსზე მოგზაურობა</title>
+  <meta name="description" content="გაემგზავრეთ წითელ პლანეტაზე ARES VOYAGER-თან ერთად. კაცობრიობის პირველი კომერციული კოსმოსური ექსპედიცია და მარსის პრემიუმ ტურიზმი.">
+
+  <!-- Google Fonts: Noto Sans Georgian + Space Grotesk + Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Dynamic Cosmic Canvas Background (Stars, Nebulas, Martian dust) -->
+  <canvas id="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Audio / Cosmic Sound Toggle (Synthesized via Web Audio API) -->
+  <div class="audio-control-wrap">
+    <button id="audio-toggle-btn" class="audio-btn" aria-label="კოსმოსური აუდიო ფონის ჩართვა/გამორთვა" title="კოსმოსური ატმოსფერული ხმა">
+      <span class="audio-icon">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+          <path class="sound-wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          <path class="sound-wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+        </svg>
+      </span>
+      <span class="audio-label">კოსმოსური აუდიო</span>
+    </button>
+  </div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" id="brand-logo">
+        <span class="logo-orb"></span>
+        <span class="logo-text">ARES<span class="logo-accent">VOYAGER</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="main-nav" aria-label="მთავარი ნავიგაცია">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">მთავარი</a></li>
+          <li><a href="#about" class="nav-link">მისიის შესახებ</a></li>
+          <li><a href="#features" class="nav-link">სერვისები</a></li>
+          <li><a href="#contact" class="nav-link nav-cta-link">კონტაქტი</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mission Status Telemetry Widget -->
+      <div class="nav-telemetry">
+        <span class="telemetry-dot"></span>
+        <span class="telemetry-status">ORBIT READY: MARS 2030</span>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="მენიუს გახსნა" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <ul class="mobile-nav-list">
+        <li><a href="#hero" class="mobile-link">მთავარი</a></li>
+        <li><a href="#about" class="mobile-link">მისიის შესახებ</a></li>
+        <li><a href="#features" class="mobile-link">სერვისები</a></li>
+        <li><a href="#contact" class="mobile-link">კონტაქტი</a></li>
+      </ul>
+      <div class="mobile-telemetry-pill">
+        🚀 მარსის ექსპედიციის რეგისტრაცია გახსნილია
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: HERO -->
+    <section class="hero-section" id="hero">
+      <div class="hero-bg-overlay"></div>
+      
+      <!-- Visual planet/spaceship focal element -->
+      <div class="hero-backdrop-image" style="background-image: url('assets/mars_hero.jpg');"></div>
+
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge animate-fade-in">
+            <span class="badge-icon">🪐</span>
+            <span class="badge-text">კაცობრიობის ახალი ეპოქა</span>
+          </div>
+
+          <h1 class="hero-title animate-slide-up">
+            კოსმოსური ტურიზმი და <br>
+            <span class="glow-text">მარსზე მოგზაურობა</span>
+          </h1>
+
+          <p class="hero-desc animate-slide-up-delay">
+            დატოვეთ დედამიწის ორბიტა და გახდით წითელი პლანეტის პირველი სამოქალაქო მკვლევარი.
+            ულტრათანამედროვე კოსმოსური კრეისერი, ხელოვნური გრავიტაცია და დაუვიწყარი 225 მილიონი კილომეტრიანი ვარსკვლავური ოდისეა.
+          </p>
+
+          <div class="hero-actions animate-slide-up-delay-2">
+            <a href="#contact" class="btn btn-primary" id="hero-cta-btn">
+              <span class="btn-text">დაჯავშნე შენი მისია</span>
+              <span class="btn-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </span>
+              <span class="btn-glow"></span>
+            </a>
+
+            <a href="#about" class="btn btn-secondary" id="hero-secondary-btn">
+              <span class="btn-text">შეიტყვეთ მეტი</span>
+              <span class="btn-icon-subtle">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
+          <!-- Hero Metrics Telemetry -->
+          <div class="hero-metrics">
+            <div class="metric-card">
+              <span class="metric-value font-mono">225M <small>კმ</small></span>
+              <span class="metric-label">მანძილი მარსამდე</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value font-mono">90 <small>დღე</small></span>
+              <span class="metric-label">ექსპედიციის დრო</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value font-mono">0.38 <small>g</small></span>
+              <span class="metric-label">მარსის გრავიტაცია</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-value font-mono">100%</span>
+              <span class="metric-label">ავტონომიური სისტემა</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="scroll-indicator" aria-label="გადახვევა ქვემოთ">
+        <span class="scroll-mouse">
+          <span class="scroll-wheel"></span>
+        </span>
+        <span class="scroll-text">გადახვევა</span>
+      </a>
+    </section>
+
+    <!-- SECTION 2: ABOUT (Two-Column Layout) -->
+    <section class="about-section" id="about">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-tag">მისია და გამოცდილება</div>
+          <h2 class="section-title">მომავლის კოსმოსური მგზავრობა უკვე რეალობაა</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Column 1: Media / Holographic Image Showcase -->
+          <div class="about-media-col">
+            <div class="about-image-wrapper">
+              <img src="assets/mars_habitat.jpg" alt="მარსის სამეცნიერო და ტურისტული კოლონია" class="about-main-img" loading="lazy">
+              
+              <!-- Floating Glassmorphism Data Overlay 1 -->
+              <div class="glass-float-card card-top-right">
+                <div class="card-pulse-indicator"></div>
+                <div class="card-float-content">
+                  <div class="float-title">ჰაბიტატი "Olympus-1"</div>
+                  <div class="float-desc">ბიო-გუმბათოვანი ეკოსისტემა</div>
+                  <div class="float-badge">სრული უსაფრთხოება</div>
+                </div>
+              </div>
+
+              <!-- Floating Glassmorphism Data Overlay 2 -->
+              <div class="glass-float-card card-bottom-left">
+                <div class="float-telemetry">
+                  <div class="telemetry-item">
+                    <span class="t-label">ატმოსფერული წნევა:</span>
+                    <span class="t-val">1.01 BAR (შიდა)</span>
+                  </div>
+                  <div class="telemetry-item">
+                    <span class="t-label">ტემპერატურა:</span>
+                    <span class="t-val">+21°C რეგულირებადი</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="image-corner-bracket top-left"></div>
+              <div class="image-corner-bracket bottom-right"></div>
+            </div>
+          </div>
+
+          <!-- Column 2: Mission and Experience Narrative -->
+          <div class="about-text-col">
+            <div class="about-badge">
+              <span class="pulse-dot"></span>
+              <span>ARES PROGRAM 2030</span>
+            </div>
+
+            <h3 class="about-heading">
+              პირველი სამოქალაქო ექსპედიცია <br>
+              <span class="text-gradient-red">მარსის ლანდშაფტზე</span>
+            </h3>
+
+            <p class="about-lead">
+              ARES VOYAGER-ის მისია მიზნად ისახავს ადამიანის წარმოსახვის ზღვარის გადალახვას. ჩვენ ვქმნით უპრეცედენტო ხიდს დედამიწასა და წითელ პლანეტას შორის, სადაც კოსმოსური მოგზაურობა აღარ არის მხოლოდ ასტრონავტების პრივილეგია.
+            </p>
+
+            <div class="experience-list">
+              <div class="exp-item">
+                <div class="exp-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                    <path d="M2 12h20"></path>
+                  </svg>
+                </div>
+                <div class="exp-info">
+                  <h4>მომავლის კოსმოსური კომფორტი</h4>
+                  <p>
+                    ფრენის მთელი პერიოდის განმავლობაში ისიამოვნებთ ხელოვნური გრავიტაციის მოდულებით, პანორამული ობსერვატორიით და ვარსკვლავური ხედებით.
+                  </p>
+                </div>
+              </div>
+
+              <div class="exp-item">
+                <div class="exp-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                  </svg>
+                </div>
+                <div class="exp-info">
+                  <h4>მარსის ბიო-გუმბათოვანი ჰაბიტატები</h4>
+                  <p>
+                    დაბინავება ულტრათანამედროვე ეკო-გუმბათებში, სადაც შენარჩუნებულია დედამიწის მსგავსი წნევა, ჟანგბადი და უმაღლესი კლასის ოთხვარსკვლავიანი სტუმართმოყვარეობა.
+                  </p>
+                </div>
+              </div>
+
+              <div class="exp-item">
+                <div class="exp-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  </svg>
+                </div>
+                <div class="exp-info">
+                  <h4>100%-ით უსაფრთხო და სერტიფიცირებული</h4>
+                  <p>
+                    ორმაგი რადიაციული დაცვის ფარი, AI-მართვადი ნავიგაცია და მსოფლიო დონის კოსმოსური ეკიპაჟის მუდმივი მეთვალყურეობა.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-quote">
+              <span class="quote-symbol">“</span>
+              <p>„მარსზე ფეხის დადგმა არ არის მხოლოდ მოგზაურობა — ეს არის კაცობრიობის ახალი სახლის აღმოჩენა.“</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 3: FEATURES (Exactly 3 Cards with Glassmorphism) -->
+    <section class="features-section" id="features">
+      <div class="container">
+        
+        <div class="section-header text-center">
+          <div class="section-tag">უნიკალური შეთავაზებები</div>
+          <h2 class="section-title">ექსკლუზიური კოსმოსური სერვისები</h2>
+          <p class="section-subtitle">
+            სპეციალურად შემუშავებული პროგრამები თქვენი დაუვიწყარი მარსიანული გამოცდილებისთვის
+          </p>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Exactly 3 Cards Grid -->
+        <div class="features-grid">
+          
+          <!-- Card 1 -->
+          <div class="feature-card glassmorphism-card" data-tilt>
+            <div class="card-glow-layer"></div>
+            <div class="card-number font-mono">01</div>
+            
+            <div class="card-icon-wrapper">
+              <div class="icon-inner">
+                <!-- Spaceship / Cruise Rocket SVG -->
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                </svg>
+              </div>
+              <div class="icon-flare"></div>
+            </div>
+
+            <h3 class="card-title">კოსმოსური კრეისერი "Astraeus"</h3>
+            <p class="card-desc">
+              პრემიუმ კლასის ინტერპლანეტარული ხომალდი. ინდივიდუალური ლუქს-კაფსულები ხელოვნური გრავიტაციით, პანორამული ობსერვატორია და გურმანული მოლეკულური სამზარეულო ღრმა კოსმოსში.
+            </p>
+
+            <ul class="card-perks">
+              <li>
+                <span class="perk-check">✓</span>
+                <span>ხელოვნური გრავიტაცია 1G რეჟიმში</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>360° პანორამული კოსმოსური გუმბათი</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>ულტრასწრაფი კვანტური კავშირი დედამიწასთან</span>
+              </li>
+            </ul>
+
+            <div class="card-footer">
+              <span class="card-badge">90-დღიანი საკრუიზო კომფორტი</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card glassmorphism-card featured-center" data-tilt>
+            <div class="card-glow-layer"></div>
+            <div class="featured-ribbon">ყველაზე პოპულარული</div>
+            <div class="card-number font-mono">02</div>
+            
+            <div class="card-icon-wrapper">
+              <div class="icon-inner">
+                <!-- Bio-Dome / Colony SVG -->
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 21h18"></path>
+                  <path d="M5 21a7 7 0 0 1 14 0"></path>
+                  <path d="M12 7V3"></path>
+                  <path d="M8 8.5V6"></path>
+                  <path d="M16 8.5V6"></path>
+                  <circle cx="12" cy="14" r="3"></circle>
+                </svg>
+              </div>
+              <div class="icon-flare"></div>
+            </div>
+
+            <h3 class="card-title">მარსის ბიო-გუმბათოვანი ჰაბიტატი</h3>
+            <p class="card-desc">
+              ცხოვრება მარსის ოლიმპოს მთისა და მარინერის ხეობის თვალწარმტაცი ხედებით. დაცული ეკოლოგიური ოაზისი, სრული ატმოსფერული წნევა და 5-ვარსკვლავიანი პერსონალიზებული სერვისი.
+            </p>
+
+            <ul class="card-perks">
+              <li>
+                <span class="perk-check">✓</span>
+                <span>სრული ატმოსფერული და თერმული კონტროლი</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>მარსიანული ჰიდროპონიკური ბაღები</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>პირადი ასტრონომიული კვლევითი სივრცე</span>
+              </li>
+            </ul>
+
+            <div class="card-footer">
+              <span class="card-badge highlight-badge">30-დღიანი ექსპედიცია ზედაპირზე</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card glassmorphism-card" data-tilt>
+            <div class="card-glow-layer"></div>
+            <div class="card-number font-mono">03</div>
+            
+            <div class="card-icon-wrapper">
+              <div class="icon-inner">
+                <!-- Astronaut Suit & Rover / Expedition SVG -->
+                <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2a4 4 0 0 0-4 4v2a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4z"></path>
+                  <path d="M6 10v4a6 6 0 0 0 12 0v-4"></path>
+                  <rect x="9" y="5" width="6" height="4" rx="2"></rect>
+                  <path d="M4 14l2 2 3-1"></path>
+                  <path d="M20 14l-2 2-3-1"></path>
+                  <line x1="12" y1="18" x2="12" y2="22"></line>
+                </svg>
+              </div>
+              <div class="icon-flare"></div>
+            </div>
+
+            <h3 class="card-title">ექსტრემალური ზედაპირული ექსპედიციები</h3>
+            <p class="card-desc">
+              გასეირნება ARES Rover-ით წითელ ქვიშაქვის დიუნებში, კოსმოსურ ეგზო-სკაფანდრში გადაადგილება დაბალ გრავიტაციაში (0.38g) და უძველესი კრატერების გამოკვლევა პროფესიონალებთან.
+            </p>
+
+            <ul class="card-perks">
+              <li>
+                <span class="perk-check">✓</span>
+                <span>მსუბუქი კინეტიკური მარს-სკაფანდრი</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>Rover საფარი მარინერის კანიონში</span>
+              </li>
+              <li>
+                <span class="perk-check">✓</span>
+                <span>პირადი ასტროფოტოგრაფის მომსახურება</span>
+              </li>
+            </ul>
+
+            <div class="card-footer">
+              <span class="card-badge">ულიმიტო ექსკურსიები</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: CONTACT (Minimalist Form for Future Astronauts) -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        
+        <div class="contact-wrapper">
+          <div class="contact-header text-center">
+            <div class="section-tag">მომავალი ასტრონავტებისთვის</div>
+            <h2 class="section-title">დაჯავშნე შენი ადგილი მარსის ექსპედიციაზე</h2>
+            <p class="section-subtitle">
+              შეავსეთ მარტივი განაცხადი და მიიღეთ ოფიციალური პრეკვალიფიკაციის პასუხი 24 საათში
+            </p>
+          </div>
+
+          <!-- Minimalist Glassmorphic Contact Form -->
+          <div class="contact-card glassmorphism-card">
+            
+            <form id="astronaut-form" class="astronaut-form" novalidate>
+              
+              <div class="form-row">
+                <!-- Name Field -->
+                <div class="form-group">
+                  <label for="full-name" class="form-label">
+                    <span class="label-text">სრული სახელი და გვარი</span>
+                    <span class="required-star">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                      </svg>
+                    </span>
+                    <input 
+                      type="text" 
+                      id="full-name" 
+                      name="fullName" 
+                      class="form-control" 
+                      placeholder="მაგ: გიორგი ბერიძე" 
+                      required 
+                      autocomplete="name"
+                    >
+                  </div>
+                  <span class="error-msg" id="name-error">გთხოვთ მიუთითოთ სახელი და გვარი</span>
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                  <label for="email" class="form-label">
+                    <span class="label-text">ელექტრონული ფოსტა</span>
+                    <span class="required-star">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                    </span>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      name="email" 
+                      class="form-control" 
+                      placeholder="astronaut@voyager.mars" 
+                      required 
+                      autocomplete="email"
+                    >
+                  </div>
+                  <span class="error-msg" id="email-error">გთხოვთ მიუთითოთ სწორი ელ-ფოსტა</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <!-- Desired Date Field -->
+                <div class="form-group">
+                  <label for="launch-date" class="form-label">
+                    <span class="label-text">სასურველი გაფრენის თარიღი</span>
+                    <span class="required-star">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                    </span>
+                    <input 
+                      type="date" 
+                      id="launch-date" 
+                      name="launchDate" 
+                      class="form-control date-picker-input" 
+                      min="2028-01-01" 
+                      max="2035-12-31" 
+                      required
+                    >
+                  </div>
+                  <span class="error-msg" id="date-error">გთხოვთ აირჩიოთ სასურველი თარიღი (2028-2035)</span>
+                </div>
+
+                <!-- Expedition Suite / Preference Selection -->
+                <div class="form-group">
+                  <label for="travel-class" class="form-label">
+                    <span class="label-text">კოსმოსური კლასი</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                    </span>
+                    <select id="travel-class" name="travelClass" class="form-control select-control">
+                      <option value="orbital-suite">ARES Orbital Suite (ლუქსი 1G გრავიტაციით)</option>
+                      <option value="explorer-first">Explorer First Class (პანორამული კაბინა)</option>
+                      <option value="mission-specialist">Scientific Specialist (სამეცნიერო პაკეტი)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="form-submit-row">
+                <button type="submit" class="btn btn-submit" id="submit-application-btn">
+                  <span class="btn-text">გაგზავნე ასტრონავტის განაცხადი</span>
+                  <span class="submit-spinner" aria-hidden="true"></span>
+                  <span class="btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                      <line x1="22" y1="2" x2="11" y2="13"></line>
+                      <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                    </svg>
+                  </span>
+                  <span class="btn-glow"></span>
+                </button>
+              </div>
+
+              <!-- Security / Privacy badge -->
+              <div class="form-privacy-note">
+                <span class="shield-icon">🔒</span>
+                <span>კონფიდენციალურობა დაცულია კვანტური შიფრაციით. წინასწარი დეპოზიტი არ მოითხოვება.</span>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Boarding Pass / Ticket Modal Confirmation (Shown upon submission) -->
+  <div class="modal-overlay" id="ticket-modal" aria-hidden="true">
+    <div class="modal-dialog glassmorphism-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="დახურვა">&times;</button>
+      
+      <div class="ticket-header">
+        <div class="ticket-badge">INTERPLANETARY BOARDING PASS</div>
+        <h3 id="modal-title">გილოცავთ! განაცხადი მიღებულია</h3>
+        <p class="ticket-subtitle">თქვენი წინასწარი კოსმოსური ბორტ-ბარათი გენერირებულია</p>
+      </div>
+
+      <div class="boarding-pass">
+        <div class="pass-top">
+          <div class="pass-carrier">ARES VOYAGER • MARS EXPEDITION</div>
+          <div class="pass-flight font-mono">FLIGHT #ARS-042</div>
+        </div>
+        
+        <div class="pass-main">
+          <div class="pass-passenger">
+            <span class="p-label">მომავალი ასტრონავტი:</span>
+            <span class="p-value" id="ticket-passenger-name">გიორგი ბერიძე</span>
+          </div>
+          
+          <div class="pass-route">
+            <div class="route-from">
+              <span class="code">EARTH</span>
+              <span class="sub">Cape Canaveral, Terra</span>
+            </div>
+            <div class="route-arrow">
+              <span class="arrow-line"></span>
+              <span class="rocket-fly">🚀</span>
+            </div>
+            <div class="route-to">
+              <span class="code">MARS</span>
+              <span class="sub">Olympus Base, Ares</span>
+            </div>
+          </div>
+
+          <div class="pass-details-row font-mono">
+            <div>
+              <span class="p-label">გაფრენის თარიღი:</span>
+              <span class="p-value" id="ticket-date">2030-05-12</span>
+            </div>
+            <div>
+              <span class="p-label">კლასი:</span>
+              <span class="p-value" id="ticket-class">Orbital Suite</span>
+            </div>
+            <div>
+              <span class="p-label">ადგილი:</span>
+              <span class="p-value">DECK-A / 07</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pass-barcode-area">
+          <div class="pass-barcode">
+            <span class="barcode-line"></span><span class="barcode-line w-wide"></span><span class="barcode-line"></span>
+            <span class="barcode-line w-mid"></span><span class="barcode-line"></span><span class="barcode-line w-wide"></span>
+            <span class="barcode-line w-thin"></span><span class="barcode-line w-mid"></span><span class="barcode-line w-wide"></span>
+            <span class="barcode-line"></span><span class="barcode-line w-mid"></span><span class="barcode-line"></span>
+          </div>
+          <span class="pass-id font-mono">ARS-MARS-2030-CONFIRMED</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <p class="modal-note">დეტალური ინსტრუქცია და ფრენის გეგმა გაგზავნილია თქვენს ელ-ფოსტაზე: <strong id="ticket-email-target"></strong></p>
+        <button class="btn btn-primary" id="modal-confirm-btn">შესანიშნავია, გასაგებია!</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-top">
+        <div class="footer-col brand-col">
+          <a href="#hero" class="brand-logo">
+            <span class="logo-orb"></span>
+            <span class="logo-text">ARES<span class="logo-accent">VOYAGER</span></span>
+          </a>
+          <p class="footer-desc">
+            კაცობრიობის პირველი სამოქალაქო კოსმოსური ტურიზმის ოპერატორი მარსის მიმართულებით. გახდით ისტორიის მონაწილე.
+          </p>
+          <div class="coordinates-badge font-mono">
+            <span class="coord-icon">📍</span>
+            <span>DESTINATION: 18.65° N, 226.2° E (OLYMPUS MONS)</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">ნავიგაცია</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">მთავარი გვერდი</a></li>
+            <li><a href="#about">მისიის შესახებ</a></li>
+            <li><a href="#features">ექსკლუზიური სერვისები</a></li>
+            <li><a href="#contact">ასტრონავტის რეგისტრაცია</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-heading">კოსმოსური პარამეტრები</h4>
+          <ul class="footer-telemetry-list font-mono">
+            <li><span>ორბიტალური სიჩქარე:</span> <strong>28,000 კმ/სთ</strong></li>
+            <li><span>წნევა ჰაბიტატში:</span> <strong>101.3 kPa</strong></li>
+            <li><span>ჟანგბადის დონე:</span> <strong>21.0% O₂</strong></li>
+            <li><span>კავშირის დაყოვნება:</span> <strong>3.1 წუთი</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2030 ARES VOYAGER Inc. ყველა უფლება დაცულია. კოსმოსური ტურიზმი და მარსზე მოგზაურობა.
+        </div>
+        <div class="footer-legal">
+          <span>Interplanetary Space Authority Certified</span>
+          <span class="dot-sep">•</span>
+          <span>Zero-G Safety Guaranteed</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
